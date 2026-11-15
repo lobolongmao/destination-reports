@@ -8,8 +8,9 @@
 
 ## 線上瀏覽
 
-- 首頁：`https://<你的帳號>.github.io/destination-reports/`
-- 泰國報告：`https://<你的帳號>.github.io/destination-reports/report.html?c=thailand`
+- 首頁：`https://lobolongmao.github.io/destination-reports/`
+- 泰國報告：`https://lobolongmao.github.io/destination-reports/report.html?c=thailand`
+- 日本報告：`https://lobolongmao.github.io/destination-reports/report.html?c=japan`
 
 報告頁可用鍵盤 ← → 翻頁，也可以按右上角「列印 / 存 PDF」輸出成簡報 PDF。
 
@@ -31,5 +32,6 @@
 
 ## 更新紀錄
 
+- 2026-11-16 新增日本報告（`japan`）；地圖支援多島國家（多個多邊形、航線方向）
 - 2026-11-16 v2：新增示意地圖、趨勢圖、同類型比較矩陣、行動優先順序；事實與 AI 推論分開標示；價格改為價格帶
 - 2026-11-16 建立專案；新增泰國報告（`thailand`）

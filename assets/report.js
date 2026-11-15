@@ -153,14 +153,21 @@
       var k = Math.cos(((b[1] + b[3]) / 2) * Math.PI / 180);
       var W = 400, H = Math.round(W * (b[3] - b[1]) / ((b[2] - b[0]) * k));
       function P(lon, lat) { return [((lon - b[0]) / (b[2] - b[0]) * W).toFixed(1), ((b[3] - lat) / (b[3] - b[1]) * H).toFixed(1)]; }
-      var outline = m.outline.map(function (p, i) { var q = P(p[0], p[1]); return (i ? "L" : "M") + q[0] + " " + q[1]; }).join("") + "Z";
+      // outline 可為單一多邊形 [[lon,lat],...] 或多個多邊形 [[[lon,lat],...], ...]（群島國家）
+      var polys = typeof m.outline[0][0] === "number" ? [m.outline] : m.outline;
+      var outline = polys.map(function (poly) {
+        return poly.map(function (p, i) { var q = P(p[0], p[1]); return (i ? "L" : "M") + q[0] + " " + q[1]; }).join("") + "Z";
+      }).join("");
       var svg = '<svg class="map-svg" viewBox="-10 -10 ' + (W + 20) + " " + (H + 20) + '" role="img" aria-label="' + esc(sl.title) + '">';
       svg += '<path class="land" d="' + outline + '"/>';
       (m.islands || []).forEach(function (p) { var q = P(p[0], p[1]); svg += '<circle class="land" cx="' + q[0] + '" cy="' + q[1] + '" r="' + (p[2] || 4) + '"/>'; });
       if (m.origin) {
-        var o = P(m.origin.from[0], m.origin.from[1]);
-        svg += '<path class="route" d="M' + o[0] + " " + o[1] + " Q " + (W * 0.85) + " " + (H * 0.35) + " " + (W + 5) + " " + (H * 0.05) + '"/>' +
-          '<text class="route-label" x="' + (W - 2) + '" y="' + (H * 0.05 + 22) + '" text-anchor="end">' + esc(m.origin.label) + "</text>";
+        // toward：臺灣相對於地圖的方向，ne（右上，預設）或 sw（左下）
+        var o = P(m.origin.from[0], m.origin.from[1]), sw = m.origin.toward === "sw";
+        var ex = sw ? -5 : W + 5, ey = sw ? H * 0.8 : H * 0.05;
+        var cx = sw ? W * 0.2 : W * 0.85, cy = sw ? H * 0.72 : H * 0.35;
+        svg += '<path class="route" d="M' + o[0] + " " + o[1] + " Q " + cx + " " + cy + " " + ex + " " + ey + '"/>' +
+          '<text class="route-label" x="' + (sw ? 2 : W - 2) + '" y="' + (sw ? ey - 12 : ey + 22) + '" text-anchor="' + (sw ? "start" : "end") + '">' + esc(m.origin.label) + "</text>";
       }
       m.points.forEach(function (pt, i) {
         var q = P(pt.lon, pt.lat), left = pt.label === "left";

@@ -154,9 +154,9 @@ destination-reports/
 ### 5-6 示意地圖（`map`）
 
 - 地圖是用經緯度自繪的**示意圖**，不需要精確國界，頁面會自動加註「示意地圖」。
-- `bbox: [最小經度, 最小緯度, 最大經度, 最大緯度]`，`outline` 是國界的概略經緯度點 `[[lon, lat], ...]`（30～80 點即可）。
+- `bbox: [最小經度, 最小緯度, 最大經度, 最大緯度]`，`outline` 是國界的概略經緯度點 `[[lon, lat], ...]`（30～80 點即可）；群島國家（日本、菲律賓等）可給多個多邊形 `[[[lon, lat], ...], [[lon, lat], ...]]`，小島用 `islands: [[lon, lat, 半徑]]`。
 - `points`: `{name, en, lat, lon, kind: "hub"|"city"|"beach", label?: "left", note, src}`；`hub` 為主要國際機場城市。
-- `origin: {from: [lon, lat], label: "臺北 ✈ 直飛約 X 小時"}` 畫出從臺灣飛來的方向。
+- `origin: {from: [lon, lat], label: "臺北 ✈ 直飛約 X 小時", toward: "ne"|"sw"}` 畫出從臺灣飛來的方向；臺灣在地圖右上方用 `ne`（預設，如泰國），在左下方用 `sw`（如日本、韓國）。
 - 標籤重疊時，把其中一點設 `label: "left"`。
 
 ### 5-7 來源標註（`src`）
