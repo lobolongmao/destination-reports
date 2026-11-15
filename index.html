@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>目的地市場分析報告</title>
+  <meta name="description" content="一國一份的簡報式旅遊市場分析：國家背景、臺灣出境市場、客群、雄獅等旅行社產品比較。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <section class="home-hero">
+    <div class="inner">
+      <p class="kicker">Destination Market Reports</p>
+      <h1>目的地市場分析報告</h1>
+      <p>一個國家，一份簡報。用同一套架構拆解出境旅遊目的地：國家背景、入境規定、臺灣市場規模、目標客群，以及雄獅旅遊與其他旅行社正在賣什麼。</p>
+    </div>
+  </section>
+
+  <main class="home-main">
+    <h2>報告列表</h2>
+    <div class="country-grid" id="country-grid"></div>
+
+    <h2>每份報告的固定結構</h2>
+    <div class="how">
+      <div>封面與一句話結論 → 國家背景 → 入境與旅行成本</div>
+      <div>臺灣出境市場數據 → 目標客群</div>
+      <div>雄獅產品整理 → 其他旅行社產品 → 優劣勢比較</div>
+      <div>市場缺口與機會（整理者觀點） → 資料來源</div>
+    </div>
+
+    <h2>關於這個專案</h2>
+    <p>這是生成式 AI 課程的作業，練習用 <code>CLAUDE.md</code> 建立一套讓 AI 能持續擴充的專案規則。報告內容寫在 <code>data/countries/</code> 的資料檔，版面由共用的渲染器產生，所以新增一個國家只需要新增一份資料檔。報告中的價格與政策皆標示查詢日期，請以各旅行社與官方最新公告為準。</p>
+  </main>
+
+  <footer class="site-footer">羅聖皓 整理 · 資料僅供學習參考 · 規則見 CLAUDE.md</footer>
+
+  <script src="data/countries.js"></script>
+  <script src="assets/home.js"></script>
+</body>
+</html>
