@@ -8,7 +8,7 @@ window.COUNTRIES = [
     name: "泰國",
     en: "Thailand",
     region: "東南亞",
-    summary: "免簽縮回 30 天、入境費上路在即；團體市場由「無購物＋五星」主導，雄獅以價格帶最廣取勝。",
+    summary: "免簽縮回 30 天、入境費研議中；同類比較下雄獅產品線最完整，品質團比價透明度是下一步。",
     checked: "2026-11-16",
     status: "done"
   }
